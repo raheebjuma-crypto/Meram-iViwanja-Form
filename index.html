@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MERAM Group</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:sans-serif;background:#0a0a0a;color:#fff;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px}
+.container{max-width:700px;width:100%;background:#111;border:1px solid #222;border-radius:16px;padding:40px}
+.status{color:#22c55e;font-size:14px;margin-bottom:20px}
+h1{font-size:48px;color:#a855f7;margin-bottom:10px}
+.btn{display:inline-block;padding:16px 28px;background:#fff;color:#000;border-radius:10px;text-decoration:none;font-weight:700;margin:30px 0;cursor:pointer}
+.card{padding:20px;background:#1a1a1a;border-radius:12px;border:1px solid #222;cursor:pointer}
+.card:hover{border-color:#a855f7}
+.hidden{display:none}
+.box{max-width:500px;width:100%;background:#121212;border:1px solid #222;border-radius:20px;padding:32px}
+h2{text-align:center;font-size:26px;margin-bottom:8px}
+.p{color:#777;font-size:14px;text-align:center;margin-bottom:25px}
+label{display:block;font-size:11px;color:#aaa;margin:16px 0 6px;text-transform:uppercase;font-weight:700}
+input,select,textarea{width:100%;padding:14px;background:#1a1a1a;border:1px solid #2a2a2a;border-radius:10px;color:#fff}
+input:focus,select:focus,textarea:focus{border-color:#d4af37;outline:none;background:#1f1f1f}
+.btn-form{width:100%;padding:16px;background:linear-gradient(90deg,#d4af37,#f5d76e);color:#000;border:none;border-radius:12px;font-weight:800;margin-top:20px;cursor:pointer;font-size:16px}
+.btn-form:hover{transform:translateY(-1px)}
+.back{display:block;text-align:center;margin-top:20px;color:#555;text-decoration:none;cursor:pointer}
+</style>
+</head>
+<body>
+
+<!-- PAGE 1: Landing -->
+<div id="landing" class="container">
+  <div class="status">● Karibu Kutimiza Ndoto Zako - Ready</div>
+  <h1>MERAM Group</h1>
+  <p style="color:#888">Pata Huduma zote za Matea Home Solution Hapa.</p>
+  <div class="btn" onclick="showOrder()">Weka Order yako Hapa Ukutane na Wataalamu Waliobobea</div>
+  <div class="card" onclick="showOrder()">
+    <h3>⚡ Miliki Kiwanja Chako Sasa</h3>
+    <p style="color:#666;margin-top:8px">Click Here</p>
+  </div>
+</div>
+
+<!-- PAGE 2: Order Form -->
+<div id="order" class="box hidden">
+  <h2>Miliki Kiwanja Chako Sasa</h2>
+  <p class="p">Jaza fomu na wataalamu wetu watawasiliana nawe hivi punde</p>
+
+  <label>Jina Kamili</label>
+  <input type="text" id="jina" placeholder="Mf: Juma Hassan">
+
+  <label>Namba ya Simu</label>
+  <input type="tel" id="simu" placeholder="07XX XXX XXX">
+
+  <label>Eneo Unalopendelea</label>
+  <select id="eneo"><option>Msijute- Dangote</option><option>Mji Mwema</option><option>Mikindani -NearBy Old Boma</option></select>
+
+  <label>Ukubwa wa Kiwanja</label>
+  <select id="ukubwa"><option>Sqm 300-500</option><option>Sqm 500-1000</option><option>Eka 1+</option></select>
+
+  <label>Ujumbe wa Ziada</label>
+  <textarea id="ujumbe" rows="3" placeholder="Maelezo ya ziada..."></textarea>
+
+  <button class="btn-form" onclick="tumaWhatsApp()">TUMA ORDER SASA</button>
+  <div class="back" onclick="showLanding()">← Rudi Nyuma</div>
+</div>
+
+<script>
+function showOrder(){
+  document.getElementById('landing').classList.add('hidden');
+  document.getElementById('order').classList.remove('hidden');
+}
+function showLanding(){
+  document.getElementById('order').classList.add('hidden');
+  document.getElementById('landing').classList.remove('hidden');
+}
+
+function tumaWhatsApp() {
+  let jina = document.getElementById('jina').value;
+  let simu = document.getElementById('simu').value;
+  let eneo = document.getElementById('eneo').value;
+  let ukubwa = document.getElementById('ukubwa').value;
+  let ujumbe = document.getElementById('ujumbe').value;
+
+  if(jina == "" || simu == ""){
+    alert("Tafadhali jaza Jina na Namba ya Simu Boss!");
+    return;
+  }
+
+  let nambaYako = "255677466829"; 
+
+  let message = `*ORDER MPYA - MERAM Group*\n\n` +
+                `*Jina:* ${jina}\n` +
+                `*Simu:* ${simu}\n` +
+                `*Eneo:* ${eneo}\n` +
+                `*Ukubwa:* ${ukubwa}\n` +
+                `*Ujumbe:* ${ujumbe}`;
+
+  let url = `https://wa.me/${nambaYako}?text=${encodeURIComponent(message)}`;
+  window.open(url, '_blank');
+}
+</script>
+
+</body>
+</html>
