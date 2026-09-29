@@ -28,7 +28,7 @@ input:focus,select:focus,textarea:focus{border-color:#d4af37;outline:none;backgr
 
 <!-- PAGE 1: Landing -->
 <div id="landing" class="container">
-  <div class="status">● Karibu Kutimiza Ndoto Zako - Ready</div>
+  <div class="status">● Karibu Kutimiza Ndoto Zako - Sasa</div>
   <h1>MERAM Group</h1>
   <p style="color:#888">Pata Huduma zote za Matea Home Solution Hapa.</p>
   <div class="btn" onclick="showOrder()">Weka Order yako Hapa Ukutane na Wataalamu Waliobobea</div>
